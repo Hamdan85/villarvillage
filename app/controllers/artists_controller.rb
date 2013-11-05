@@ -1,6 +1,17 @@
 class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
+
+  before_filter(:except => [:index,:show]) do
+    if current_user.nil?
+      respond_to do |format|
+        format.html { render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found }
+        format.xml  { head :not_found }
+        format.any  { head :not_found }
+      end
+    end
+  end
+
   def index
     @artists = Artist.all
 

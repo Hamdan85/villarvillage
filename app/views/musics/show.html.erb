@@ -20,6 +20,7 @@
   <%= @music.album.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,@music) %> |
+<% if !current_user.nil? %>
+    <%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,@music) %> |
+<% end %>
 <%= link_to "Back to " + @music.album.name + "'s Musics", artist_album_musics_path(@artist,@album) %>

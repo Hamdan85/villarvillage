@@ -1,5 +1,13 @@
 VillarVillage::Application.routes.draw do
 
+  devise_for :users, :path => '/admin'
+
+  #as :user do
+  #  get 'admin' => 'devise/sessions#new', :as => :new_user_session
+  #  post 'admin' => 'devise/sessions#create', :as => :user_session
+  #  delete 'admin/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
+  #end
+
   root :to => 'artists#index'
 
   resources :artists do
@@ -7,7 +15,6 @@ VillarVillage::Application.routes.draw do
       resources :musics
     end
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

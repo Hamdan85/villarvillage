@@ -17,13 +17,16 @@
     <td><%= music.genre %></td>
     <td><%= music.duration %></td>
     <td><%= link_to 'Show', artist_album_music_path(@artist,@album,music) %></td>
-    <td><%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,music) %></td>
-    <td><%= link_to 'Destroy', artist_album_music_path(@artist,@album,music), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if !current_user.nil? %>
+        <td><%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,music) %></td>
+        <td><%= link_to 'Destroy', artist_album_music_path(@artist,@album,music), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Music', new_artist_album_music_path(@artist,@album) %> |
+<% if !current_user.nil? %>
+    <%= link_to 'New Music', new_artist_album_music_path(@artist,@album) %> |
+<% end %>
 <%= link_to "Back to " + @album.name + "'s Musics", artist_albums_path(@artist) %>
