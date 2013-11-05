@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  genre: MyString
+  duration: 2013-11-04 21:59:10
+  album: 
+
+two:
+  name: MyString
+  genre: MyString
+  duration: 2013-11-04 21:59:10
+  album: 

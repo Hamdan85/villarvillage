@@ -1,0 +1,29 @@
+<h1>Listing <%= @album.name %>' musics by <%= @artist.name %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Duration</th>
+    <th>Album</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @musics.each do |music| %>
+  <tr>
+    <td><%= music.name %></td>
+    <td><%= music.genre %></td>
+    <td><%= music.duration %></td>
+    <td><%= link_to 'Show', artist_album_music_path(@artist,@album,music) %></td>
+    <td><%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,music) %></td>
+    <td><%= link_to 'Destroy', artist_album_music_path(@artist,@album,music), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Music', new_artist_album_music_path(@artist,@album) %> |
+<%= link_to "Back to " + @album.name + "'s Musics", artist_albums_path(@artist) %>

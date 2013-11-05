@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @music.name %>
+</p>
+
+<p>
+  <b>Genre:</b>
+  <%= @music.genre %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @music.duration %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%= @music.album.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,@music) %> |
+<%= link_to "Back to " + @music.album.name + "'s Musics", artist_album_musics_path(@artist,@album) %>
