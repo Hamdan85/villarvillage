@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131105020321) do
+ActiveRecord::Schema.define(:version => 20131113231255) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20131105020321) do
     t.integer  "artist_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
 
   add_index "albums", ["artist_id"], :name => "index_albums_on_artist_id"
+  add_index "albums", ["slug"], :name => "index_albums_on_slug", :unique => true
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -30,7 +32,10 @@ ActiveRecord::Schema.define(:version => 20131105020321) do
     t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "artists", ["slug"], :name => "index_artists_on_slug", :unique => true
 
   create_table "musics", :force => true do |t|
     t.string   "name"
@@ -39,9 +44,11 @@ ActiveRecord::Schema.define(:version => 20131105020321) do
     t.integer  "album_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
 
   add_index "musics", ["album_id"], :name => "index_musics_on_album_id"
+  add_index "musics", ["slug"], :name => "index_musics_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
