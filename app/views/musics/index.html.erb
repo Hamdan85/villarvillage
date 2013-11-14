@@ -15,6 +15,7 @@
   <tr>
     <td><%= music.name %></td>
     <td><%= music.genre %></td>
+    <td><%= image_tag music.cover.url %></td>
     <td><%= music.duration %></td>
     <td><%= link_to 'Show', artist_album_music_path(@artist,@album,music) %></td>
     <% if !current_user.nil? %>

@@ -26,6 +26,8 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
 
+    puts @artist.avatar
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @artist }

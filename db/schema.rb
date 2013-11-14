@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113231255) do
+ActiveRecord::Schema.define(:version => 20131114043056) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
     t.date     "releasedate"
-    t.string   "cover"
     t.integer  "artist_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "slug"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "albums", ["artist_id"], :name => "index_albums_on_artist_id"
@@ -30,9 +33,13 @@ ActiveRecord::Schema.define(:version => 20131113231255) do
     t.string   "name"
     t.text     "release"
     t.string   "country"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "slug"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "artists", ["slug"], :name => "index_artists_on_slug", :unique => true
@@ -42,9 +49,13 @@ ActiveRecord::Schema.define(:version => 20131113231255) do
     t.string   "genre"
     t.time     "duration"
     t.integer  "album_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "slug"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "musics", ["album_id"], :name => "index_musics_on_album_id"

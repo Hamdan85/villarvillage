@@ -20,6 +20,11 @@
   <%= @music.album.name %>
 </p>
 
+<p>
+  <b>Cover:</b>
+  <%= image_tag @music.cover.url %>
+</p>
+
 <% if !current_user.nil? %>
     <%= link_to 'Edit', edit_artist_album_music_path(@artist,@album,@music) %> |
 <% end %>

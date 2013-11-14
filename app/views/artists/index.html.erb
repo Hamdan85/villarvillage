@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Avatar</th>
     <th>Release</th>
     <th>Country</th>
     <th></th>
@@ -13,6 +14,7 @@
 <% @artists.each do |artist| %>
   <tr>
     <td><%= artist.name %></td>
+    <td><%= image_tag artist.avatar.url %></td>
     <td><%= artist.release %></td>
     <td><%= artist.country %></td>
     <td><%= link_to 'Show', artist %></td>
@@ -22,8 +24,6 @@
   </tr>
 <% end %>
 </table>
-
-<%= will_paginate @artists %>
 
 <br />
 

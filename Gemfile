@@ -30,6 +30,10 @@ gem "friendly_id", "~> 4.0.10" # Note: You MUST use 4.0.9 or greater for Rails 3
 #gem for pagination
 gem 'will_paginate', '~> 3.0'
 
+#gem for photo upload
+
+gem "paperclip", "~> 3.0"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

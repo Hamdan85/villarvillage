@@ -3,7 +3,6 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.string :name
       t.date :releasedate
-      t.string :cover
       t.belongs_to :artist
 
       t.timestamps

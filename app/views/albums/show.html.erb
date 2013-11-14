@@ -17,7 +17,7 @@
 
 <p>
   <b>Cover:</b>
-  <%= @album.cover %>
+  <%= image_tag @album.cover.url %>
 </p>
 
 <% if !current_user.nil? %>
