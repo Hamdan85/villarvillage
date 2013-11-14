@@ -1,6 +1,6 @@
 class InicialController < ApplicationController
   def index
-    @artists = Artist.paginate(:page => params[:page], :per_page => 4)
+    @artists = Artist.paginate(:page => params[:page], :per_page => 6)
   end
 
   def contato
