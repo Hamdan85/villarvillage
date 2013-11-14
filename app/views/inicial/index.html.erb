@@ -1,0 +1,11 @@
+<div class="artistcontainer">
+  <% @artists.each do |artist| %>
+    <div class="artistcard">
+      <div class="artistname"><%= artist.name %></div>
+    </div>
+  <% end %>
+</div>
+
+<div class="pagecounter">
+  <div class="apple_pagination"><%= will_paginate @artists %></div>
+</div>

@@ -23,6 +23,8 @@
 <% end %>
 </table>
 
+<%= will_paginate @artists %>
+
 <br />
 
 <%= link_to 'New Artist', new_artist_path if !current_user.nil? %>
