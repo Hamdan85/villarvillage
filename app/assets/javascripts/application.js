@@ -13,3 +13,45 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+//Search Elements
+var searchBox = document.getElementById('searchBox');
+var searchField = document.getElementById('searchField');
+var searchIcon = document.getElementById('searchIcon');
+
+//Focusing SearchBox
+searchField.addEventListener('focus', function(){
+    searchBox.className += ' shadowSearch';
+});
+
+searchField.addEventListener('blur', function(){
+    searchBox.className = 'searchBox';
+});
+
+//Expand SearchBox
+
+searchIcon.addEventListener('click', function() {
+    searchBox.className += ' expandedSearch';
+    searchField.focus();
+})
+
+searchBox.addEventListener('click', function() {
+    if (searchBox.className.indexOf('expandedSearch') == -1) {
+        searchBox.className += ' expandedSearch';
+        searchField.focus();
+    }
+})
+
+searchField.addEventListener('click', function() {
+    if (searchBox.className.indexOf('expandedSearch') == -1) {
+        searchBox.className += ' expandedSearch';
+        searchField.focus();
+    }
+})
+
+searchField.addEventListener('blur', function(){
+    setTimeout(function() {
+        searchField.innerText = '';
+    }, 500);
+})
+

@@ -3,15 +3,21 @@
 <head>
   <title>VillarVillage</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="top-bar-fixed">
+  <div class="logo"></div>
+    <%= render :partial => 'inicial/shared/menu' %>
+</div>
 
-<% if !current_user.nil? %>
-    <%= link_to 'Logout',  destroy_user_session_path, :method => :delete %>
-<% end %>
+<div class="content">
+  <div class="center-content"><%= yield %></div>
+</div>
+
+<div class="footer"></div>
+
+<%= javascript_include_tag "application" %>
 </body>
 </html>

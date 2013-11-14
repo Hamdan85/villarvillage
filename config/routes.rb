@@ -1,5 +1,7 @@
 VillarVillage::Application.routes.draw do
 
+  get "inicial/index"
+
   devise_for :users, :path => '/admin'
 
   #as :user do
@@ -8,7 +10,10 @@ VillarVillage::Application.routes.draw do
   #  delete 'admin/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
   #end
 
-  root :to => 'artists#index'
+  root :to => 'inicial#index'
+
+  match '/quemsomos' => 'inicial#quemsomos', :as => 'quemsomos'
+  match '/contato' => 'inicial#contato', :as => 'contato'
 
   resources :artists do
     resources :albums do
