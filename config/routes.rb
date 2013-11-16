@@ -1,5 +1,7 @@
 VillarVillage::Application.routes.draw do
 
+  resources :newlatests, :path => 'noticias'
+
   get "inicial/index"
 
   devise_for :users, :path => '/admin'

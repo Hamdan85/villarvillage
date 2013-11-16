@@ -12,3 +12,15 @@
 <div class="pagecounter">
   <div class="apple_pagination"><%= will_paginate @artists %></div>
 </div>
+<% if !@newlatests.nil?  %>
+    <div class="news">
+        <% @newlatests.each do |newlatest| %>
+            <%= link_to newlatest do %>
+                <div class="eachnew">
+                  <h2><%= newlatest.title %></h2>
+                  <%= newlatest.content %>
+                </li>
+            <% end %>
+        <% end %>
+    </div>
+<% end %>

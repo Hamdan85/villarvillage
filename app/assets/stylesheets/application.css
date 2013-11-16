@@ -237,6 +237,22 @@ input[type='submit']:hover {
     width: 600px;
 }
 
+.news {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 15px;
+    background-color: gray;
+    border-radius: 45px;
+    width: 600px;
+}
+.eachnew {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
 /* Artist Avatar */
 .avatar {
 
