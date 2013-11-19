@@ -12,7 +12,8 @@ class InicialController < ApplicationController
       content.content = content.content.split(" ").first(30).join(" ")
     end
 
-    puts @newlatests.to_s
+    @latestalbums = Album.order('created_at DESC').limit(2)
+
   end
 
   def contato

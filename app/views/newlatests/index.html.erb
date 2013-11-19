@@ -1,23 +1,20 @@
 <h1>Últimas Notícias</h1>
 
 <% @newlatests.each do |newlatest| %>
-  <div class="news">
-    <%= link_to newlatest do %>
-        <div class="eachnew">
-          <h2><%= newlatest.title %></h2>
-          <%= newlatest.content %>
-          <% if !current_user.nil? %>
+    <div class="news">
+      <%= link_to newlatest do %>
+          <div class="eachnew">
+            <h2><%= newlatest.title %></h2>
+            <%= newlatest.content %>
+          </div>
+      <% end %>
+      <% if !current_user.nil? %>
           <%= link_to 'Edit', edit_newlatest_path(newlatest) %>
-          <%= link_to 'Destroy', newlatest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </div>
-    <% end %>
-  </div>
+          <%= link_to 'Destroy', newlatest, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
 <% end %>
-
-<% end %>
-
 
 <% if !current_user.nil? %>
     <%= link_to 'Adicionar Notícia', new_newlatest_path %>
 <% end %>
-

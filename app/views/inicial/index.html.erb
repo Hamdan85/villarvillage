@@ -1,26 +1,52 @@
-<div class="artistcontainer">
-  <% @artists.each do |artist| %>
-      <%= link_to artist do %>
-          <div class="artistcard">
-            <%= image_tag artist.avatar.url, :class => 'avatar' %>
-            <div class="artistname"><%= artist.name %></div>
-          </div>
-      <% end %>
-  <% end %>
-</div>
 
-<div class="pagecounter">
-  <div class="apple_pagination"><%= will_paginate @artists %></div>
-</div>
-<% if !@newlatests.nil?  %>
-    <div class="news">
-        <% @newlatests.each do |newlatest| %>
-            <%= link_to newlatest do %>
-                <div class="eachnew">
-                  <h2><%= newlatest.title %></h2>
-                  <%= newlatest.content %>
-                </li>
+<div class="row">
+
+  <div class="large-12 columns">
+    <div class="panel">
+      <div class="row">
+
+        <% @artists.each do |artist| %>
+            <%= link_to artist do %>
+                <div class="large-3 columns">
+                  <%= image_tag artist.avatar.url %>
+                </div>
             <% end %>
         <% end %>
+      </div>
+      <br>
+      <div class="large-12 gray_back">
+        <div class="apple_pagination"><%= will_paginate @artists %></div>
+      </div>
     </div>
-<% end %>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <% if !@newlatests.nil?  %>
+            <div class="panel">
+              <% @newlatests.each do |newlatest| %>
+                  <%= link_to newlatest do %>
+                        <h5><%= newlatest.title %></h5>
+                        <p><%= newlatest.content %></p>
+                  <% end %>
+              <% end %>
+              </div>
+        <% end %>
+      </div>
+
+      <div class="large-6 columns">
+        <% if !@latestalbums.nil?  %>
+            <div class="panel">
+              <% @latestalbums.each do |lastalbum| %>
+                  <%= link_to artist_album_path(lastalbum.artist,lastalbum) do %>
+                      <h5><%= lastalbum.name %></h5>
+                      <p><%= lastalbum.cover %></p>
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+

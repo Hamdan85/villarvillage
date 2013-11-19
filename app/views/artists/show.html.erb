@@ -1,31 +1,97 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Photo:</b>
-  <%= image_tag @artist.avatar.url, :class => 'avatar' %>
-</p>
+<div class="row">
 
-<p>
-  <b>Name:</b>
-  <%= @artist.name %>
-</p>
+  <div class="large-3 panel columns">
+    <%= image_tag @artist.avatar.url, :class => 'avatar' %>
 
-<p>
-  <b>Release:</b>
-  <%= @artist.release %>
-</p>
+    <h4><%= @artist.name %></h4>
 
-<p>
-  <b>Country:</b>
-  <%= @artist.country %>
-</p>
+    <b>País:</b>
+    <%= @artist.country %>
+
+    <div class="row">
+      <div class="large-12">
+        <% if !current_user.nil? %>
+            <%= link_to 'Edit', edit_artist_path(@artist), :class => 'small button full_width' %>
+        <% end %>
+      </div>
+      <div class="large-12 full_width">
+        <%= link_to 'Back', artists_path, :class => 'small button full_width' %>
+      </div>
+      <div class="large-12 full_width">
+        <% if !current_user.nil? %>
+            <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'small button full_width' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="large-9 columns">
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+          <h2>Release</h2>
+          <p><p><%= @artist.release %></p><hr></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="row">
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+
+        <div class="large-3 columns end">
+          <img src="http://placehold.it/600x500&text=Thumbnail">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
-<% if !current_user.nil? %>
-    <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<% end %>
-<%= link_to 'Back', artists_path %> |
-<%= link_to 'Show Albums', artist_albums_path(@artist) %> |
-<% if !current_user.nil? %>
-    <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>

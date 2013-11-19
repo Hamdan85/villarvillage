@@ -1,26 +1,37 @@
-<div class="menu">
-  <ul>
-    <li><%= link_to 'Início', root_path %></li>
-    <li><%= link_to 'Artistas', artists_path %></li>
-    <li><%= link_to 'Notícias', newlatests_path %></li>
-    <li><%= link_to 'QuemSomos', quemsomos_path %></li>
-    <li>
-      <% if current_user.nil? %>
-          <%= link_to 'Contato', contato_path %>
-      <% end %>
+<!-- Navigation -->
+
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1>
+        <a href="#">
+          Top Bar Title
+        </a>
+      </h1>
     </li>
-    <li>
-      <% if !current_user.nil? %>
-          <%= link_to 'Sair',  destroy_user_session_path, :method => :delete %>
-      <% end %>
-    </li>
-    <li>
-      <div class="searchBox" id="searchBox">
-        <div class="searchField" contenteditable="true" id="searchField"></div>
-        <div class="searchIcon">
-          <i class="icon-search" id="searchIcon"></i>
-        </div>
-      </div>
-    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
   </ul>
-</div>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><%= link_to 'Início', root_path %></li>
+      <li><%= link_to 'Artistas', artists_path %></li>
+      <li><%= link_to 'Notícias', newlatests_path %></li>
+      <li><%= link_to 'QuemSomos', quemsomos_path %></li>
+      <li>
+        <% if current_user.nil? %>
+            <%= link_to 'Contato', contato_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if !current_user.nil? %>
+            <%= link_to 'Sair',  destroy_user_session_path, :method => :delete %>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+</nav>
+<!-- End Top Bar -->
+
