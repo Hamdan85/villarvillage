@@ -1,7 +1,10 @@
 .apple_pagination {
     text-align: center;
     padding: 1em;
-    cursor: default; }
+    cursor: default;
+    background-color: gray;
+    border-radius: 10px;
+}
 .apple_pagination a, .apple_pagination span {
     padding: 0.2em 0.3em;
 }

@@ -1,15 +1,27 @@
+#newclasses
+
+.inicial_albumcover
+
+#override
+
 img {
-    height: 150px;
-    width: 150px;
-    border-radius: 15px;
-    border: 1px solid lightgray;
     overflow: hidden;
+    border-radius: 15px;
+
 }
 
-.gray_back {
-    background-color: gray;
+.panel {
+    border: none;
+    background-color: transparent;
 }
 
-.full_width {
-    width: 100%!important;
+.button {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 0.7em;
+    color: black;
+}
+
+.button:hover {
+    background-color: lightgray;
 }

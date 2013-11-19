@@ -1,6 +1,44 @@
-<h1>Editing album</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+<%= form_for [@artist,@album] do |f| %>
+    <% if @album.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
 
-<%= link_to 'Show', artist_album_path(@artist,@album) %> |
-<%= link_to 'Back', artist_albums_path(@artist) %>
+          <ul>
+            <% @album.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+
+      <%= render :partial => 'artists/shared/artistBar', @album.artist => @artist %>
+
+
+      <div class="large-9 columns">
+        <h2>Editando:</h2>
+        <div class="row">
+          <div class="large-12 columns">
+            <h3><%= f.text_field :name %></h3>
+            <%= image_tag @album.cover.url %>
+            <%= f.file_field :cover %>
+            <h5>Data de Lançamento:</h5>
+            <p><%= f.date_select :releasedate %></p>
+            <%= f.submit "Atualizar #{@album.name}", :class => 'small button expand' %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+    <div class="row">
+      <div class="large-6 column">
+        <%= link_to "Voltar ao artista #{@album.artist.name}", artist_albums_path(@artist), :class => 'small button expand' %>
+      </div>
+      <div class="large-6 column">
+        <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button expand' %>
+      </div>
+    </div>

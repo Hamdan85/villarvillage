@@ -1,27 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Artist:</b>
-  <%= @album.artist.name %>
-</p>
 
-<p>
-  <b>Name:</b>
-  <%= @album.name %>
-</p>
+<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Releasedate:</b>
-  <%= @album.releasedate %>
-</p>
+<div class="row">
 
-<p>
-  <b>Cover:</b>
-  <%= image_tag @album.cover.url %>
-</p>
+  <%= render :partial => 'artists/shared/artistBar', @album.artist => @artist %>
 
-<% if !current_user.nil? %>
-    <%= link_to 'Edit', edit_artist_album_path(@artist,@album) %> |
-<% end %>
-<%= link_to 'Back', artist_albums_path(@artist) %> |
-<%= link_to 'Show Musics', artist_album_musics_path(@artist,@album) %>
+  <div class="large-9 columns">
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h3><%= @album.name %></h3>
+        <%= image_tag @album.cover.url %>
+        <h5>Data de Lançamento:</h5>
+        <p><%= @album.releasedate %></p>
+      </div>
+
+      <div class="large-12 panel">
+        <h3>Faixas:</h3>
+        <ul>
+          <% @album.musics.each do |music| %>
+              <li><%= "#{music.name}(#{music.duration})" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 column">
+    <%= link_to "Voltar ao artista #{@album.artist.name}", artist_path(@artist), :class => 'small button expand' %>
+  </div>
+  <div class="large-6 column">
+    <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button expand' %>
+  </div>
+</div>

@@ -90,14 +90,12 @@ class NewlatestsController < ApplicationController
 
   # DELETE /newlatests/1
   # DELETE /newlatests/1.json
-  # DELETE /artists/1
-  # DELETE /artists/1.json
   def destroy
     @newlatest = Newlatest.find(params[:id]).destroy
 
 
     respond_to do |format|
-      format.html { redirect_to artists_url }
+      format.html { redirect_to newlatests_url }
       format.json { head :no_content }
     end
   end

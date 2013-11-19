@@ -14,13 +14,14 @@
         <% end %>
       </div>
       <br>
-      <div class="large-12 gray_back">
+      <div class="large-12">
         <div class="apple_pagination"><%= will_paginate @artists %></div>
       </div>
     </div>
 
     <div class="row">
       <div class="large-6 columns">
+        <h5>Últimas Notícias</h5>
         <% if !@newlatests.nil?  %>
             <div class="panel">
               <% @newlatests.each do |newlatest| %>
@@ -34,13 +35,15 @@
       </div>
 
       <div class="large-6 columns">
+        <h5>Últimos Lançamentos</h5>
         <% if !@latestalbums.nil?  %>
             <div class="panel">
               <% @latestalbums.each do |lastalbum| %>
-                  <%= link_to artist_album_path(lastalbum.artist,lastalbum) do %>
-                      <h5><%= lastalbum.name %></h5>
-                      <p><%= lastalbum.cover %></p>
-                  <% end %>
+                  <div class="large-3">
+                    <%= link_to artist_album_path(lastalbum.artist,lastalbum) do %>
+                        <%= image_tag lastalbum.cover.url %>
+                    <% end %>
+                  </div>
               <% end %>
             </div>
         <% end %>

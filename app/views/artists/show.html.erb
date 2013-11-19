@@ -2,30 +2,7 @@
 
 <div class="row">
 
-  <div class="large-3 panel columns">
-    <%= image_tag @artist.avatar.url, :class => 'avatar' %>
-
-    <h4><%= @artist.name %></h4>
-
-    <b>País:</b>
-    <%= @artist.country %>
-
-    <div class="row">
-      <div class="large-12">
-        <% if !current_user.nil? %>
-            <%= link_to 'Edit', edit_artist_path(@artist), :class => 'small button full_width' %>
-        <% end %>
-      </div>
-      <div class="large-12 full_width">
-        <%= link_to 'Back', artists_path, :class => 'small button full_width' %>
-      </div>
-      <div class="large-12 full_width">
-        <% if !current_user.nil? %>
-            <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'small button full_width' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render :partial => 'artists/shared/artistBar', @artist => @artist %>
 
   <div class="large-9 columns">
 
@@ -40,58 +17,22 @@
 
     <div class="panel">
       <div class="row">
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
-
-        <div class="large-3 columns end">
-          <img src="http://placehold.it/600x500&text=Thumbnail">
-        </div>
+        <% @artist.albums.each do |album| %>
+            <div class="large-3 columns">
+              <%= link_to artist_album_path(@artist,album) do %>
+                  <%= image_tag album.cover.url %>
+              <% end %>
+            </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
+<div class="row">
+  <div class="large-12">
+      <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button expand' %>
+  </div>
 </div>
 
 
