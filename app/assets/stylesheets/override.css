@@ -1,7 +1,5 @@
 #newclasses
 
-.inicial_albumcover
-
 #override
 
 img {
@@ -25,3 +23,33 @@ img {
 .button:hover {
     background-color: lightgray;
 }
+
+.logo {
+    background-image: url('biglogo.png');
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 271px;
+    margin-left: 50px;
+    margin-top: 0px;
+    position: relative;
+    width: 238px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.top-bar {
+    background:white !important; /*example */
+    color: #000000;
+}
+
+.top-bar-section li a:not(.button) {
+    color: #000000!important;
+    background:white !important; /*example */
+}
+.top-bar-section li a:not(.button):hover {
+    color: #000000!important;
+    background:white !important; /*example */
+    text-decoration: overline;
+ }
