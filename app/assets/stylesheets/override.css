@@ -50,7 +50,7 @@
     background:white !important; /*example */
 }
 .top-bar-section li a:not(.button):hover {
-    color: #000000!important;
+    color: #e2b52d!important;
     background:white !important; /*example */
     text-decoration: overline;
  }

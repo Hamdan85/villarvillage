@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.all
+    @artists = Artist.paginate(:page => params[:page], :per_page => 8)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -57,8 +57,8 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.save
-        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
-        format.json { render json: @artist, status: :created, location: @artist }
+        format.html { redirect_to artists_path, notice: 'Artist was successfully created.' }
+        format.json { render json: artists_path, status: :created, location: @artist }
       else
         format.html { render action: "new" }
         format.json { render json: @artist.errors, status: :unprocessable_entity }
