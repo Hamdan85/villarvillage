@@ -1,18 +1,16 @@
-<div class="row">
-  <h1>Casting</h1>
-  <div class="large-3 panel column">
-    <h5>Tipos</h5>
-    <div class="panel">
-      <%= link_to 'Novo Artista', new_artist_path, :class => 'small button expand' if !current_user.nil? %>
-    </div>
-  </div>
-  <div class="large-9">
-    <% @artists.each do |artist| %>
-        <%= link_to artist do %>
-            <div class="large-3 column">
-              <%= image_tag artist.avatar.url %>
-            </div>
-        <% end %>
+<h1>Casting</h1>
+<div class="large-3 panel column">
+<h5>Tipos</h5>
+<div class="panel">
+  <%= link_to 'Novo Artista', new_artist_path, :class => 'small button expand' if !current_user.nil? %>
+</div>
+</div>
+<div class="large-9">
+<% @artists.each do |artist| %>
+    <%= link_to artist do %>
+        <div class="large-3 column">
+          <%= image_tag artist.avatar.url %>
+        </div>
     <% end %>
-  </div>
+<% end %>
 </div>

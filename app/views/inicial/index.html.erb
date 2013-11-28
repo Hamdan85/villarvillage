@@ -1,16 +1,15 @@
-
 <div class="row">
 
   <div class="large-12 columns">
     <div class="panel">
-      <div class="row">
+      <div class="row collapse">
 
         <% @artists.each do |artist| %>
-            <%= link_to artist do %>
-                <div class="large-3 columns">
-                  <%= image_tag artist.avatar.url %>
-                </div>
-            <% end %>
+            <div class="large-2 small-4 left columns">
+              <%= link_to artist do %>
+                  <%= image_tag artist.avatar.url, :style => 'border-radius: 15px;' %>
+              <% end %>
+            </div>
         <% end %>
       </div>
       <br>
@@ -19,18 +18,18 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="large-12">
       <div class="large-6 columns">
         <h5>Últimas Notícias</h5>
         <% if !@newlatests.nil?  %>
             <div class="panel">
               <% @newlatests.each do |newlatest| %>
                   <%= link_to newlatest do %>
-                        <h5><%= newlatest.title %></h5>
-                        <p><%= newlatest.content %></p>
+                      <h5><%= newlatest.title %></h5>
+                      <p><%= newlatest.content %></p>
                   <% end %>
               <% end %>
-              </div>
+            </div>
         <% end %>
       </div>
 
@@ -50,6 +49,3 @@
       </div>
     </div>
   </div>
-
-</div>
-

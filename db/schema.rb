@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(:version => 20131116231217) do
 
   add_index "artists", ["slug"], :name => "index_artists_on_slug", :unique => true
 
-  create_table "micronews", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "musics", :force => true do |t|
     t.string   "name"
     t.string   "genre"
@@ -75,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20131116231217) do
     t.datetime "updated_at", :null => false
     t.string   "slug"
   end
+
+  add_index "newlatests", ["slug"], :name => "index_newlatests_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

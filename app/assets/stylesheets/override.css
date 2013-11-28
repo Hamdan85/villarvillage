@@ -2,10 +2,9 @@
 
 #override
 
-img {
-    overflow: hidden;
-    border-radius: 15px;
-
+.row.collapse {
+    background: none!important;
+    border: none!important;
 }
 
 .panel {
@@ -24,21 +23,23 @@ img {
     background-color: lightgray;
 }
 
-.logo {
+.top-bar .logog {
     background-image: url('biglogo.png');
+    background-size: 100%;
     vertical-align: middle;
     background-repeat: no-repeat;
     content: "";
     display: inline-block;
-    height: 271px;
     margin-left: 50px;
-    margin-top: 0px;
+    margin-top: -50px;
     position: relative;
     width: 238px;
+    height: 271px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
+/*Top Bar Override*/
 .top-bar {
     background:white !important; /*example */
     color: #000000;
@@ -53,3 +54,38 @@ img {
     background:white !important; /*example */
     text-decoration: overline;
  }
+
+/*Top Bar Mobile Expanded Override*/
+.title-area .name {
+    background: white;
+}
+.top-bar .menu-icon a {
+    color: #000000!important;
+}
+.top-bar.expanded .menu-icon a {
+    color: #000000!important;
+}
+
+.top-bar.expanded .right li {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.top-bar .logop {
+    background-image: url('biglogo.png');
+    background-size: 100%;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 0px;
+    position: absolute;
+    width: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.toggle-topbar.menu-icon a span {
+    -webkit-box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black!important;
+    -webkit-box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black!important;
+}
