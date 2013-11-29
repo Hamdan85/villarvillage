@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
+  <h2><%= @artist.name %></h2>
 
   <%= render :partial => 'artists/shared/artistBar', @artist => @artist %>
 
@@ -9,13 +10,16 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="panel">
-          <h2>Release</h2>
-          <p><p><%= @artist.release %></p><hr></p>
+          <h3>Release</h3>
+          <hr>
+          <p><p><%= @artist.release %></p></p>
         </div>
       </div>
     </div>
 
     <div class="panel">
+      <h3>Albums</h3>
+      <hr>
       <div class="row">
         <% @artist.albums.each do |album| %>
             <div class="large-3 columns">

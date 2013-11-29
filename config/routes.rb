@@ -1,18 +1,15 @@
 VillarVillage::Application.routes.draw do
 
+
   resources :newlatests, :path => 'noticias'
 
-  get "inicial/index"
+  match '/' => "inicial#index"
+  root :to => 'inicial#index'
 
   devise_for :users, :path => '/admin'
 
-  #as :user do
-  #  get 'admin' => 'devise/sessions#new', :as => :new_user_session
-  #  post 'admin' => 'devise/sessions#create', :as => :user_session
-  #  delete 'admin/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session
-  #end
-
-  root :to => 'inicial#index'
+  #ajax requirements
+  match '/ajax/artists/:page' => 'ajax#artists'
 
   match '/quemsomos' => 'inicial#quemsomos', :as => 'quemsomos'
   match '/contato' => 'inicial#contato', :as => 'contato'

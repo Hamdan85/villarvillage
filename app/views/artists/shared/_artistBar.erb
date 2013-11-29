@@ -1,7 +1,7 @@
 <div class="large-3 panel columns">
   <%= image_tag @artist.avatar.url %>
 
-  <h4><%= @artist.name %></h4>
+  <h4><%= @artist.name if (controller_name != 'artists' && action_name != 'show') %></h4>
 
   <b>País:</b>
   <%= @artist.country %>

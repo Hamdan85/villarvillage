@@ -1,22 +1,6 @@
 <div class="row">
 
-  <div class="large-12 columns">
-    <div class="panel">
-      <div class="row collapse">
-
-        <% @artists.each do |artist| %>
-            <div class="large-2 small-4 left columns">
-              <%= link_to artist do %>
-                  <%= image_tag artist.avatar.url, :style => 'border-radius: 15px;' %>
-              <% end %>
-            </div>
-        <% end %>
-      </div>
-      <br>
-      <div class="large-12">
-        <div class="apple_pagination"><%= will_paginate @artists %></div>
-      </div>
-    </div>
+    <%= render :partial => 'artists/shared/artistContainer' %>
 
     <div class="large-12">
       <div class="large-6 columns">

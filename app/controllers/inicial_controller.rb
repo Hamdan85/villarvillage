@@ -1,6 +1,6 @@
 class InicialController < ApplicationController
   def index
-    @artists = Artist.paginate(:page => params[:page], :per_page => 8)
+
 
     #get the latest 5 news with more recent above
 

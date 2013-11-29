@@ -1,24 +1,11 @@
 <div class="row">
-  <h1>Casting</h1>
-  <div class="large-12 columns">
-    <table>
-      <thead>
-      <tr>
-        <th>Foto:</th>
-        <th>Nome:</th>
-        <th>Nacionalidade:</th>
-      </tr>
-      </thead>
-      <tbody>
-          <% @artists.each do |artist| %>
-              <tr>
-                <td><%= link_to artist do %><%= image_tag artist.avatar.url, :style => 'width: 50px; height:50px' %><% end %></td>
-                <td><%= artist.name %></td>
-                <td><%= artist.country %></td>
-              </tr>
-          <% end %>
-      </tbody>
-    </table>
+  <h2>Casting</h2>
+  <div class="panel">
+    <div class="row collapse">
+
+      <%= render :partial => 'artists/shared/artistContainer' %>
+
+    </div>
   </div>
   <div class="large-12 panel">
     <div class="panel">

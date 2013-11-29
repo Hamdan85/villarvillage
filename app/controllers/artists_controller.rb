@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.paginate(:page => params[:page], :per_page => 8)
+    @artists = Artist.paginate(:page => params[:page], :per_page => 12)
 
     respond_to do |format|
       format.html # index.html.erb
