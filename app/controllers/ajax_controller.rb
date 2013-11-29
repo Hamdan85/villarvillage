@@ -8,8 +8,6 @@ class AjaxController < ApplicationController
       else
         artist.avatar_file_name = '/assets/missing_avatar.gif'
       end
-
-
     end
 
     respond_to do |format|
