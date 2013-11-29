@@ -107,3 +107,6 @@
     -webkit-box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black!important;
     -webkit-box-shadow: 0 10px 0 1px black, 0 16px 0 1px black, 0 22px 0 1px black!important;
 }
+#artistsContainer {
+    height: 306px;
+}
