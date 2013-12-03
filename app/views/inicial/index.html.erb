@@ -1,8 +1,9 @@
 <div class="row">
 
-    <%= render :partial => 'artists/shared/artistContainer' %>
-
     <div class="large-12">
+      <div class="row collapse">
+        <%= render :partial => 'artists/shared/artistContainer' %>
+      </div>
       <div class="large-6 columns">
         <h5>Últimas Notícias</h5>
         <% if !@newlatests.nil?  %>
@@ -10,7 +11,7 @@
               <% @newlatests.each do |newlatest| %>
                   <%= link_to newlatest do %>
                       <h5><%= newlatest.title %></h5>
-                      <p><%= newlatest.content %></p>
+                      <p><%= newlatest.content.html_safe %></p>
                   <% end %>
               <% end %>
             </div>

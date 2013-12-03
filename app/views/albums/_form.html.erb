@@ -25,7 +25,7 @@
         <% end %>
         <div class="row">
           <div class="large-12 columns">
-            <h3><%= f.text_field :name %></h3>
+            <h3><%= f.text_field :name, :class => 'redactor' %></h3>
             <%= image_tag @album.cover.url %>
             <%= f.file_field :cover %>
             <h5>Data de Lançamento:</h5>

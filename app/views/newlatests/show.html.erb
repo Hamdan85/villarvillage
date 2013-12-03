@@ -1,16 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="large-12">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @newlatest.title %>
-</p>
+    <h2><%= @newlatest.title %></h2>
 
-<p>
-  <b>Content:</b>
-  <%= @newlatest.content %>
-</p>
+    <p>
+      <%= @newlatest.content.html_safe %>
+    </p>
 
-<% if !current_user.nil? %>
-    <%= link_to 'Edit', edit_newlatest_path(@newlatest) %> |
-<% end %>
-<%= link_to 'Back', newlatests_path %>
+    <% if !current_user.nil? %>
+        <%= link_to 'Edit', edit_newlatest_path(@newlatest) %> |
+    <% end %>
+    <%= link_to 'Back', newlatests_path %>
+  </div>
+</div>

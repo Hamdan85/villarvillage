@@ -1,6 +1,8 @@
 VillarVillage::Application.routes.draw do
 
 
+  mount RedactorRails::Engine => '/redactor_rails'
+
   resources :newlatests, :path => 'noticias'
 
   match '/' => "inicial#index"

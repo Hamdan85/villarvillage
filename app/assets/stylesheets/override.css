@@ -110,3 +110,11 @@
 #artistsContainer {
     height: 306px;
 }
+
+.redactor_box {
+    height: 400px!important;
+}
+
+.redactor_editor {
+    height: 90%!important;
+}

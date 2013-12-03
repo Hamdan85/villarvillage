@@ -6,8 +6,8 @@
         <div class="news">
           <%= link_to newlatest do %>
               <div class="eachnew">
-                <h2><%= newlatest.title %></h2>
-                <%= newlatest.content %>
+                <h5><%= newlatest.title %></h5>
+                <p><%= newlatest.content.html_safe %></p>
               </div>
           <% end %>
           <% if !current_user.nil? %>
@@ -18,7 +18,7 @@
     <% end %>
 
     <% if !current_user.nil? %>
-        <%= link_to 'Adicionar Notícia', new_newlatest_path %>
+        <%= link_to 'Adicionar Notícia', new_newlatest_path, :class => 'button expand' %>
     <% end %>
   </div>
 </div>

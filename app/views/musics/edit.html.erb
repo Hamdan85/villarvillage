@@ -1,6 +1,10 @@
-<h1>Editing music</h1>
+<div class="row">
+  <div class="large-12">
+    <h1>Editing music</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show', artist_album_music_path(@artist,@album,@music) %> |
-<%= link_to 'Back', artist_album_musics_path(@artist,@album) %>
+    <%= link_to 'Voltar Para Album', artist_album_path(@artist,@album),:class => 'button expand' %>
+
+  </div>
+</div>
