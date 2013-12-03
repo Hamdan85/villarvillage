@@ -36,7 +36,7 @@
 
     <div class="row">
       <div class="large-6 column">
-        <%= link_to "Voltar ao artista #{@album.artist.name}", artist_albums_path(@artist), :class => 'small button expand' %>
+        <%= link_to "Voltar ao artista #{@album.artist.name}", artist_path(@artist), :class => 'small button expand' %>
       </div>
       <div class="large-6 column">
         <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button expand' %>

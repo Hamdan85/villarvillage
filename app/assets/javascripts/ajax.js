@@ -31,9 +31,13 @@ function getArtists(nextPrev) {
             .done(function(data){
                 maxPage = Math.ceil(data[1]/12);
 
-                artistContainer.innerHTML = "";
+
                 $.each( data[0], function( index, artist ) {
-                    $('#artistContainer').append('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><img src="'+ artist.avatar_file_name + '" style="border-radius: 15px;"></a></div>').hide().fadeIn('slow');
+                    if ( index == 0 ) {
+                        $('#artistContainer').html('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><img src="'+ artist.avatar_file_name + '" style="border-radius: 15px;"></a></div>').hide().fadeIn(150);
+                    } else {
+                        $('#artistContainer').append('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><img src="'+ artist.avatar_file_name + '" style="border-radius: 15px;"></a></div>').hide().fadeIn(150);
+                    }
                 });
 
                 var pages = "";

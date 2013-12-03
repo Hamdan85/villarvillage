@@ -1,8 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-<p id="notice"><%= notice %></p>
-
 <div class="row">
 
   <%= render :partial => 'artists/shared/artistBar', @album.artist => @artist %>
@@ -14,16 +11,34 @@
         <h3><%= @album.name %></h3>
         <%= image_tag @album.cover.url %>
         <h5>Data de Lançamento:</h5>
-        <p><%= @album.releasedate %></p>
+        <p><%= @album.releasedate.strftime('%d/%m/%y') %></p>
       </div>
 
       <div class="large-12 panel">
         <h3>Faixas:</h3>
-        <ul>
-          <% @album.musics.each do |music| %>
-              <li><%= "#{music.name}(#{music.duration})" %></li>
+        <table>
+          <tr>
+          <th>Nome</th>
+          <th>Genero</th>
+          <th>Duração</th>
+          <% if !current_user.nil? %>
+              <th>Edição</th>
           <% end %>
-        </ul>
+          </tr>
+          <% @album.musics.each do |music| %>
+            <tr>
+              <td><%= "#{music.name}" %></td>
+              <td><%= music.genre %></td>
+              <td><%= "#{music.duration.strftime("%I:%M")}" %></td>
+              <td>
+                <% if !current_user.nil? %>
+                    <%= link_to 'Editar', edit_artist_album_music_path(@artist,@album,music), :class => 'button' %>
+                    <%= link_to 'Destroy', artist_album_music_path(@artist,@album,music), method: :delete, data: { confirm: 'Are you sure?' },:class => 'button' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
       </div>
     </div>
   </div>

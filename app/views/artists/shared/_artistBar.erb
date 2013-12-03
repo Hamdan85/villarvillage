@@ -24,7 +24,7 @@
 
       <% if !current_user.nil? && controller_name == 'albums' && action_name != 'new' %>
           <div class="large-12">
-            <%= link_to "Editar #{@album.name}", edit_artist_album_path(@artist,@album), :class => 'small button expand' %>
+            <%= link_to "Editar #{@album.name}", edit_artist_album_path(@artist,@album), :class => 'small button expand' if action_name != 'edit' %>
             <%= link_to "Adicionar Música", new_artist_album_music_path(@artist,@album), :class => 'small button expand' %>
           </div>
       <% end %>
