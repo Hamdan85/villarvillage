@@ -2,15 +2,30 @@ var page = 1;
 var maxPage = 9999999999;
 var next = document.getElementById('nextlink');
 var previous = document.getElementById('previouslink');
+var pagination = document.getElementById('pagination');
+
+if (pagination != null) {
+    pagination.addEventListener('change',function(){
+        if (pagination.html != null) {
+            pagination.classNames = '';
+        } else {
+            pagination.addClassName('pagination');
+        }
+    })
+}
+
 getArtists('first');
 
-previous.addEventListener('click', function () {
-    getArtists('Prev');
-});
+if (next != null && previous != null ) {
+    previous.addEventListener('click', function () {
+        getArtists('Prev');
+    });
 
-next.addEventListener('click', function () {
-    getArtists('Next');
-});
+    next.addEventListener('click', function () {
+        getArtists('Next');
+    });
+}
+
 
 function getArtists(nextPrev) {
 
@@ -51,7 +66,7 @@ function getArtists(nextPrev) {
                             pages += '<a href="?page=' + i + '">' + i + '</a>';
                         }
                     }
-                    $('#artistContainer').after('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próxima →</a></div>');
+                    $('#pagination').html('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próxima →</a></div>');
                 }
 
 
@@ -61,12 +76,15 @@ function getArtists(nextPrev) {
                 previous = document.getElementById('previouslink')
                 artistContainer = document.getElementById('artistContainer')
                 pagination = document.getElementById('pagination');
-                previous.addEventListener('click', function(){
-                    getArtists('Prev');
-                })
-                next.addEventListener('click',function(){
-                    getArtists('Next');
-                });
+                if (next != null && previous != null ) {
+                    previous.addEventListener('click', function () {
+                        getArtists('Prev');
+                    });
+
+                    next.addEventListener('click', function () {
+                        getArtists('Next');
+                    });
+                }
             })
 
     }
