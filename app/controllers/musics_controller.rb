@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MusicsController < ApplicationController
   # GET /musics
   # GET /musics.json
@@ -65,7 +66,7 @@ class MusicsController < ApplicationController
 
     respond_to do |format|
       if @music.save
-        format.html { redirect_to artist_album_path(@artist,@album), notice: 'Music was successfully created.' }
+        format.html { redirect_to artist_album_path(@artist,@album), notice: 'Música atualizada com sucesso.' }
         format.json { render json: artist_album_path(@artist,@album), status: :created, location: artist_album_music_path(@artist,@album,@music) }
       else
         format.html { render action: "new" }
@@ -83,7 +84,7 @@ class MusicsController < ApplicationController
 
     respond_to do |format|
       if @music.update_attributes(params[:music])
-        format.html { redirect_to artist_album_music_path(@artist,@album,@music), notice: 'Music was successfully updated.' }
+        format.html { redirect_to artist_album_path(@artist,@album,@music), notice: 'Música atualizada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -101,7 +102,7 @@ class MusicsController < ApplicationController
     @music.destroy
 
     respond_to do |format|
-      format.html { redirect_to artist_album_musics_path(@artist,@album) }
+      format.html { redirect_to artist_album_path(@artist,@album) }
       format.json { head :no_content }
     end
   end

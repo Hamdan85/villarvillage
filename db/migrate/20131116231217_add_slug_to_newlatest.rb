@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugToNewlatest < ActiveRecord::Migration
   def change
     add_column :newlatests, :slug, :string

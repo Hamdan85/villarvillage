@@ -13,7 +13,7 @@ $(document).ready(
       "fileGetJson":"/redactor_rails/documents",
       "path":"/assets/redactor-rails",
       "css":"style.css",
-      "lang":"pt_BR"
+      "lang":"pt_br"
     }
 
   );

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 VillarVillage::Application.routes.draw do
 
 

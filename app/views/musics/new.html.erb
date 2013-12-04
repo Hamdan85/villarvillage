@@ -1,15 +1,6 @@
 <div class="row">
   <div class="large-12">
-    <h1>Nova Música</h1>
-
+    <h2>Nova Música em <%= @album.name %></h2>
     <%= render 'form' %>
   </div>
 </div>
-
-<div class="row">
-  <div class="large-12 column">
-    <%= link_to 'Back', artist_album_musics_path(@artist,@album) %>
-  </div>
-</div>
-
-

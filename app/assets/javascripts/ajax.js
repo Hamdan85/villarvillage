@@ -34,9 +34,9 @@ function getArtists(nextPrev) {
 
                 $.each( data[0], function( index, artist ) {
                     if ( index == 0 ) {
-                        $('#artistContainer').html('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><img src="'+ artist.avatar_file_name + '" style="border-radius: 15px;"></a></div>').hide().fadeIn(150);
+                        $('#artistContainer').html('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><div class="artistPhoto"><img src="'+ artist.avatar_file_name + '"></div></a></div>').hide().fadeIn(150);
                     } else {
-                        $('#artistContainer').append('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><img src="'+ artist.avatar_file_name + '" style="border-radius: 15px;"></a></div>').hide().fadeIn(150);
+                        $('#artistContainer').append('<div class="large-2 small-4 left columns" id='+artist.slug+'><a href="/artists/' + artist.slug + '"><div class="artistPhoto"><img src="'+ artist.avatar_file_name + '"></div></a></div>').hide().fadeIn(150);
                     }
                 });
 
@@ -48,7 +48,7 @@ function getArtists(nextPrev) {
                         pages += '<a href="?page=' + i + '">' + i + '</a>';
                     }
                 }
-                $('#pagination').html('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próximo →</a></div>');
+                $('#pagination').html('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próxima →</a></div>');
             })
             .always(function(){
                 next = document.getElementById('nextlink')

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjaxController < ApplicationController
   def artists
     @artists = Artist.paginate(:page => params[:page], :per_page => 12)

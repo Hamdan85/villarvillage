@@ -18,25 +18,40 @@
 
       <div class="large-9 columns">
         <% if action_name == 'new' %>
-            <h2>Novo Album:</h2>
+            <h3>Novo Album:</h3>
         <% end %>
         <% if action_name == 'edit' %>
-            <h2>Editando:</h2>
+            <h3>Editando:</h3>
         <% end %>
         <div class="row">
           <div class="large-12 columns">
-            <h3><%= f.text_field :name, :class => 'redactor' %></h3>
+            <h3><%= f.text_field :name,:placeholder => 'Título do Álbum' %></h3>
             <%= image_tag @album.cover.url %>
             <%= f.file_field :cover %>
             <h5>Data de Lançamento:</h5>
-            <p><%= f.date_select :releasedate %></p>
-            <% if action_name == 'new' %>
-                <%= f.submit "Criar Album", :class => 'small button expand' %>
-            <% else %>
-                <%= f.submit "Atualizar #{@album.name}", :class => 'small button expand' %>
-            <% end %>
+
+            <div class="large-12">
+
+              <%= f.date_select :releasedate, {
+                      :order => [:day, :month, :year],
+                      :prompt => { :day => 'Escolha o Dia', :month => 'Escolha o Mês', :year => 'Escolha o Ano' }
+              },
+                                {
+                                        :class => "large-4 column custom"
+                                }
+              %>
+            </div>
 
           </div>
+        </div>
+        </br>
+        <div class="large-12">
+          <%= link_to 'Voltar', artist_path(@artist), :class => 'button large-6 columns' %>
+          <% if action_name == 'new' %>
+              <%= f.submit "Criar Album", :class => 'button large-6 columns' %>
+          <% else %>
+              <%= f.submit "Atualizar Álbum", :class => 'button large-6 columns' %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -13,7 +13,12 @@
 
   <div class="row">
     <div class="large-3 panel columns">
-      <%= image_tag 'missing_avatar.gif' %>
+      <% if action_name == 'new' %>
+          <%= image_tag 'missing_avatar.gif' %>
+      <% else %>
+          <%= image_tag @artist.avatar.url %>
+      <% end %>
+
       <%= f.file_field :avatar %>
 
       <h4><%= f.text_field :name, :placeholder => 'Nome' %></h4>
@@ -36,8 +41,8 @@
 
   <div class="row">
     <div class="large-12">
-      <%= f.submit 'Registrar', :class => 'small button expand' %>
-      <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button expand' %>
+      <%= f.submit 'Registrar', :class => 'small button large-6 column' %>
+      <%= link_to 'Voltar aos Artistas', artists_path, :class => 'small button large-6 column' %>
     </div>
   </div>
 <% end %>

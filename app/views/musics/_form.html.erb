@@ -11,23 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :genre %><br />
-    <%= f.text_field :genre %>
-  </div>
-  <div class="field">
-    <%= f.label :duration %><br />
-    <%= f.time_select :duration %>
-  </div>
-  <div>
-    <%= f.file_field :cover %>
-  </div>
+  <div class="large-12">
+    <div class="large-3 column">
+      <% if action_name == 'new' %>
+          <%= image_tag 'missing_avatar.gif' %>
+      <% else %>
+          <%= image_tag @album.cover.url %>
+      <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+      <h5><%= @album.name %></h5>
+    </div>
+
+    <div class="large-9 column">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :genre %><br />
+        <%= f.text_field :genre %>
+      </div>
+      <div class="large-4">
+        <%= f.label :duration %><br />
+        <%= f.time_select :duration, {
+                :order => [:minute, :second],
+        },
+                          {
+                                  :class => "large-5 column custom"
+                          } %>
+      </div>
+      <!--  Dont want music cover right now
+      <div>
+        <%= f.file_field :cover %>
+      </div>
+      -->
+
+      <br />
+      <div class="large-12">
+        <%= link_to 'Voltar', artist_album_path(@artist,@album), :class => 'button large-6 column' %>
+        <%= f.submit 'Adicionar Música', :class => 'button large-6 column' %>
+      </div>
+    </div>
   </div>
 <% end %>

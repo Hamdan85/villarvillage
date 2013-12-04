@@ -23,7 +23,7 @@
         <% if !@latestalbums.nil?  %>
             <div class="panel">
               <% @latestalbums.each do |lastalbum| %>
-                  <div class="large-3">
+                  <div class="large-3 column left">
                     <%= link_to artist_album_path(lastalbum.artist,lastalbum) do %>
                         <%= image_tag lastalbum.cover.url %>
                     <% end %>

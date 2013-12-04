@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateMusics < ActiveRecord::Migration
   def change
     create_table :musics do |t|

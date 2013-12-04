@@ -12,14 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <h3><%= f.text_field :title, :placeholder => 'Título da Notícia' %></h3>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
     <%= f.text_area :content, :class => "redactor" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  </br>
+  <div class="large-12">
+    <%= link_to 'Voltar', newlatests_path, :class => 'button large-6 column' %>
+    <%= f.submit 'Salvar Notícia', :class => 'button large-6 column'%>
   </div>
+
 <% end %>

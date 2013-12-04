@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttachmentAvatarToArtists < ActiveRecord::Migration
   def self.up
     change_table :artists do |t|

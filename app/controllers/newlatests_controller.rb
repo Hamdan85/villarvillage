@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NewlatestsController < ApplicationController
   # GET /newlatests
   # GET /newlatests.json
@@ -33,6 +34,10 @@ class NewlatestsController < ApplicationController
   # GET /newlatests/1.json
   def show
     @newlatest = Newlatest.find(params[:id])
+
+    #Loads latest albums
+
+    @latestalbums = Album.order('created_at DESC').limit(2)
 
     respond_to do |format|
       format.html # show.html.erb

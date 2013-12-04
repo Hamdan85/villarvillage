@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Album < ActiveRecord::Base
   belongs_to :artist
   has_many :musics, :dependent => :destroy

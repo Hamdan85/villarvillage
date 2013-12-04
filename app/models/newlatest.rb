@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Newlatest < ActiveRecord::Base
   attr_accessible :content, :title
 

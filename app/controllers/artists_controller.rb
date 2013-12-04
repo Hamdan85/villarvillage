@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
@@ -57,7 +58,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.save
-        format.html { redirect_to artists_path, notice: 'Artist was successfully created.' }
+        format.html { redirect_to artists_path, notice: 'Artista atualizado com sucesso.' }
         format.json { render json: artists_path, status: :created, location: @artist }
       else
         format.html { render action: "new" }
@@ -73,7 +74,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       if @artist.update_attributes(params[:artist])
-        format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
+        format.html { redirect_to @artist, notice: 'Artista atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

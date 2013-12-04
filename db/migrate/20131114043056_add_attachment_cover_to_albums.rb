@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttachmentCoverToAlbums < ActiveRecord::Migration
   def self.up
     change_table :albums do |t|

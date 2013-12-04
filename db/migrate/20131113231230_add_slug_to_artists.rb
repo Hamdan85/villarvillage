@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugToArtists < ActiveRecord::Migration
   def change
     add_column :artists, :slug, :string
