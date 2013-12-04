@@ -40,15 +40,21 @@ function getArtists(nextPrev) {
                     }
                 });
 
-                var pages = "";
-                for(var i=1;i<maxPage+1;i++) {
-                    if (i == page) {
-                        pages += '<em class="current">' + i + '</em>';
-                    } else {
-                        pages += '<a href="?page=' + i + '">' + i + '</a>';
+                //check if pagination controlls are needed.
+
+                if (maxPage > 1) {
+                    var pages = "";
+                    for(var i=1;i<maxPage+1;i++) {
+                        if (i == page) {
+                            pages += '<em class="current">' + i + '</em>';
+                        } else {
+                            pages += '<a href="?page=' + i + '">' + i + '</a>';
+                        }
                     }
+                    $('#artistContainer').after('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próxima →</a></div>');
                 }
-                $('#pagination').html('<div class="pagination"><a class="previous_page" id="previouslink">← Anterior</a>' + pages + '<a class="next_page" id="nextlink">Próxima →</a></div>');
+
+
             })
             .always(function(){
                 next = document.getElementById('nextlink')
